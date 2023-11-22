@@ -62,8 +62,8 @@ public class CustomerInfo extends JFrame implements ActionListener{
         l7.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(l7);
         
-        JLabel l8= new JLabel("Room_No");
-        l8.setBounds(920,60,100,20);
+        JLabel l8= new JLabel("Total_Members");
+        l8.setBounds(910,60,130,20);
         l8.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(l8);
         

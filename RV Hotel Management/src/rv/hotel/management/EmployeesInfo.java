@@ -33,7 +33,7 @@ public class EmployeesInfo extends JFrame implements ActionListener{
         lbljob.setFont(new Font("Tahoma", Font.PLAIN, 18)); 
         add(lbljob);
         
-        job = new JComboBox(new String[]{"Front Desk Clerks","HouseKeeping","Security","IT staff","Human resource","Kitchen staff","Room Service","Accountant","Manager","Chef"});
+        job = new JComboBox(new String[]{"All","Front Desk Clerks","HouseKeeping","Security","IT staff","Human resource","Kitchen staff","Room Service","Accountant","Manager","Chef"});
         job.setBounds(150,50,180,30);
         job.setBackground(Color.WHITE);
         add(job);
@@ -119,12 +119,21 @@ public class EmployeesInfo extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource() == search){
             try {
-            String query = "select * from employee where job = '"+job.getSelectedItem()+"'";
+             String employeeAll = (String) job.getSelectedItem();
+                
+            String query1 = "select * from employee where job = '"+job.getSelectedItem()+"'";
+            String query2 = "select * from employee";
+               
             
             Conn c = new Conn();
             ResultSet rs;
             
-            rs = c.s.executeQuery(query);
+            rs = c.s.executeQuery(query1);
+            
+            if(employeeAll.equals("All")){
+                    rs = c.s.executeQuery(query2);
+             }
+            
             
             table.setModel(DbUtils.resultSetToTableModel(rs));
             }catch(Exception e){

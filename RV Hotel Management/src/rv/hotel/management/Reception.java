@@ -10,7 +10,7 @@ import java.awt.event.*;
  */
 public class Reception extends JFrame implements ActionListener {
     
-    JButton dashboard,newcustomer,rooms,department,allemployee,customerinfo,managerinfo,checkout,updatependingstatus,roomstatus,pickup,searchroom,logout,isbox;
+    JButton dashboard,newcustomer,rooms,department,allemployee,customerinfo,managerinfo,checkout,updatependingstatus,roomstatus,pickup,updatedriverservice,logout,isbox;
     
     Reception(){
         
@@ -94,13 +94,13 @@ public class Reception extends JFrame implements ActionListener {
         pickup.addActionListener(this);
         add(pickup);
         
-        searchroom = new JButton("Search Room");
-        searchroom.setBounds(880,550,300,40);
-        searchroom.setFont(new Font("serif",Font.PLAIN,20));
-        searchroom.setBackground(Color.WHITE);
-        searchroom.setForeground(Color.BLACK);
-        searchroom.addActionListener(this);
-        add(searchroom);
+        updatedriverservice = new JButton("Update Driver Service");
+        updatedriverservice.setBounds(880,550,300,40);
+        updatedriverservice.setFont(new Font("serif",Font.PLAIN,20));
+        updatedriverservice.setBackground(Color.WHITE);
+        updatedriverservice.setForeground(Color.BLACK);
+        updatedriverservice.addActionListener(this);
+        add(updatedriverservice);
         
         dashboard = new JButton("Dashboard");
         dashboard.setBounds(880,600,300,40);
@@ -153,9 +153,9 @@ public class Reception extends JFrame implements ActionListener {
         }else if(ae.getSource() == customerinfo){
             setVisible(false);
             new CustomerInfo();
-        }else if(ae.getSource() == searchroom){
+        }else if(ae.getSource() == updatedriverservice){
             setVisible(false);
-            new SearchRoom();
+            new UpdateDriverService();
         }else if(ae.getSource() == updatependingstatus){
             setVisible(false);
             new UpdateCheck();
