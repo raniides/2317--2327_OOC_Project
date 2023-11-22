@@ -290,7 +290,6 @@ public class AddCustomer extends JFrame implements ActionListener{
             
         }else if (ae.getSource() == back){
             setVisible(false);
-                
             new Reception();
         }
     }

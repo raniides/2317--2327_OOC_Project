@@ -14,7 +14,7 @@ public class AddEmployee extends JFrame implements ActionListener {
     
     JTextField tfname, tfage,tfsalary,tfphone,tfemail,tfadhar;
     JRadioButton rbmale,rbfemale,rbother;
-    JButton submit;
+    JButton submit,back;
     JComboBox cbjob;
     
     AddEmployee() {
@@ -130,10 +130,18 @@ public class AddEmployee extends JFrame implements ActionListener {
         submit = new JButton("SUBMIT");
         submit.setBackground(Color.WHITE);
         submit.setForeground(Color.BLACK);
-        submit.setBounds(180,720,150,30);
+        submit.setBounds(90,720,150,30);
         submit.setFont(new Font("Tahoma",Font.PLAIN,15));
         submit.addActionListener(this);
         add(submit);
+        
+        back = new JButton("BACK");
+        back.setBackground(Color.WHITE);
+        back.setForeground(Color.BLACK);
+        back.setBounds(300,720,150,30);
+        back.setFont(new Font("Tahoma",Font.PLAIN,15));
+        back.addActionListener(this);
+        add(back);
         
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/l4.png"));
         Image i2 = i1.getImage().getScaledInstance(750,720,Image.SCALE_DEFAULT);
@@ -148,7 +156,8 @@ public class AddEmployee extends JFrame implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent ae){
-        String name = tfname.getText();
+        if(ae.getSource()==submit){
+            String name = tfname.getText();
         String age = tfage.getText();
         String salary = tfsalary.getText();
         String phone = tfphone.getText();
@@ -185,6 +194,10 @@ public class AddEmployee extends JFrame implements ActionListener {
             
         }catch(Exception e){
             e.printStackTrace();
+        }
+        }else if(ae.getSource()==back){
+            setVisible(false);
+            new Dashboard();
         }
          
         

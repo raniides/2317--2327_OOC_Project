@@ -135,7 +135,7 @@ public class AddRooms extends JFrame implements ActionListener{
                  e.printStackTrace();
              }
              
-         }else {
+         }else if(ae.getSource()==cancel){
              setVisible(false);
              new Dashboard();
          }

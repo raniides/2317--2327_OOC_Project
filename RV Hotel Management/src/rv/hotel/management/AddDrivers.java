@@ -13,7 +13,7 @@ public class AddDrivers extends JFrame implements ActionListener{
     
     JTextField tfname,tfage,tfcarcompany,tfcarmodel,tflocation;
     JComboBox gendercombo,availablecombo;
-    JButton add, cancel;
+    JButton add, back;
     
     AddDrivers(){
       
@@ -103,18 +103,18 @@ public class AddDrivers extends JFrame implements ActionListener{
         add = new JButton("Add Driver");
         add.setForeground(Color.BLACK);
         add.setBackground(Color.WHITE);
-        add.setBounds(100,660,130,40);
+        add.setBounds(80,660,130,40);
         add.setFont(new Font("Tahoma",Font.PLAIN,15));
         add.addActionListener(this);
         add(add);
         
-        cancel = new JButton("Cancel");
-        cancel.setForeground(Color.BLACK);
-        cancel.setBackground(Color.WHITE);
-        cancel.setBounds(280,660,130,40);
-        cancel.setFont(new Font("Tahoma",Font.PLAIN,15));
-        cancel.addActionListener(this);
-        add(cancel);
+        back = new JButton("Back");
+        back.setForeground(Color.BLACK);
+        back.setBackground(Color.WHITE);
+        back.setBounds(260,660,130,40);
+        back.setFont(new Font("Tahoma",Font.PLAIN,15));
+        back.addActionListener(this);
+        add(back);
         
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/l3.jpg"));
         Image i2 = i1.getImage().getScaledInstance(750,720,Image.SCALE_DEFAULT);
@@ -154,8 +154,9 @@ public class AddDrivers extends JFrame implements ActionListener{
                  e.printStackTrace();
              }
              
-         }else {
+         }else if(ae.getSource()==back){
              setVisible(false);
+             new Dashboard();
          }
      }
     
